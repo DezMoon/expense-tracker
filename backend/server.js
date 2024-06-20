@@ -4,6 +4,7 @@ const cors = require("cors");
 const { sequelize } = require("./models");
 const userRoutes = require("./routes/userRoutes");
 const expenseRoutes = require("./routes/expenseRoutes");
+const incomeRoutes = require("./routes/incomeRoutes");
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use(
 //Routes
 app.use("/api/users", userRoutes);
 app.use("/api/expenses", expenseRoutes);
+app.use("/api/incomes", incomeRoutes);
 
 const PORT = process.env.PORT || 5000;
 

@@ -15,14 +15,18 @@ const protect = asyncHandler(async (req, res, next) => {
 
       req.user = await User.findByPk(decoded.id);
 
+      if (!req.user) {
+        res.status(401);
+        throw new Error("Not authorized, user not found");
+      }
+
       next();
     } catch (error) {
+      console.error("Token verification failed:", error);
       res.status(401);
       throw new Error("Not authorized, token failed");
     }
-  }
-
-  if (!token) {
+  } else {
     res.status(401);
     throw new Error("Not authorized, no token");
   }
