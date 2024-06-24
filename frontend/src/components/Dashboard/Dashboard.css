@@ -1,0 +1,84 @@
+.dashboard {
+  /* margin-left: 250px;  Adjust if sidebar width changes */
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.balance-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.balance-info p {
+  margin: 0;
+  color: #999;
+}
+
+.balance-info h2 {
+  margin: 0;
+}
+
+.balance-type {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.balance-icons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.expenses-statistics,
+.send-money,
+.scheduled-payments {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.expenses-statistics h3,
+.send-money h3,
+.scheduled-payments h3 {
+  margin-top: 0;
+}
+
+.forms,
+.lists {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .balance-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .stats {
+    flex-direction: column;
+  }
+}
