@@ -20,23 +20,22 @@ const IncomeForm = ({ onIncomeAdded }) => {
       return;
     }
 
-    console.log("Request data:", {
-      amount,
-      source,
-      date,
-      userId,
-    });
+    console.log("Request data:", { amount, source, date, userId });
+
+    if (!userId) {
+      console.error("userId is undefined. Ensure it's fetched from useAuth");
+      return;
+    }
 
     try {
+      const config = {
+        headers: { Authorization: `Bearer ${token}` },
+      };
+
       const response = await axios.post(
         "http://localhost:5000/api/incomes",
-        {
-          amount,
-          source,
-          date,
-          userId,
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
+        { amount, source, date, userId },
+        config
       );
       console.log("Income added", response.data);
       setAmount("");
@@ -59,7 +58,7 @@ const IncomeForm = ({ onIncomeAdded }) => {
         <label>Amount</label>
         <input
           type="number"
-          value={amount}
+          value={amount || ""}
           onChange={(e) => setAmount(e.target.value)}
           required
         />
@@ -68,7 +67,7 @@ const IncomeForm = ({ onIncomeAdded }) => {
         <label>Source</label>
         <input
           type="text"
-          value={source}
+          value={source || ""}
           onChange={(e) => setSource(e.target.value)}
           required
         />
@@ -77,7 +76,7 @@ const IncomeForm = ({ onIncomeAdded }) => {
         <label>Date</label>
         <input
           type="date"
-          value={date}
+          value={date || ""}
           onChange={(e) => setDate(e.target.value)}
           required
         />

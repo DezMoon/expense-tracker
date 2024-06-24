@@ -66,7 +66,7 @@ const loginUser = async (req, res) => {
 };
 
 // @desc    Get user profile
-// @route   GET /api/users/profile
+// @route   GET /api/users/me
 // @access  Private
 const getUserProfile = asyncHandler(async (req, res) => {
   const user = await User.findByPk(req.user.id);
