@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  /*margin-top: 80px;*/
 }
 
 .balance-card {
@@ -71,6 +72,7 @@
   .dashboard {
     margin-left: 0;
     padding: 1rem;
+    /*margin-top: 400px;*/
   }
 
   .balance-card {
